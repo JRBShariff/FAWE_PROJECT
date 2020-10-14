@@ -5,6 +5,7 @@ if(!$_SESSION['user']){
 	header("location:index.php?must Login");
 }
 $_SESSION['active']="home";
+include("inc/Ecript_function.php");
 
 ?>
 <!doctype html>
@@ -45,13 +46,14 @@ $_SESSION['active']="home";
 
   <!--  CSS for Demo Purpose, don't include it in your project     -->
   <link href="assets/css/demo.css" rel="stylesheet" />
+  <link href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css" rel="stylesheet" />
 
 
   <!--  Fonts and icons     -->
 <link rel="stylesheet" href="lib/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
   <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
   <link href="assets/css/themify-icons.css" rel="stylesheet">
-
+ 
 </head>
 <body>
 
@@ -236,26 +238,64 @@ $_SESSION['active']="home";
         </div>
        
         <div class="row">
-          <div class="col-md-6">
+          <div class="col-md-12">
             <div class="card">
               <div class="header">
                 <h4 class="title">All Users</h4>
                 <p class="category"> Graph Analysis</p>
               </div>
               <div class="content">
-                <div id="chartPreferences" class="ct-chart ct-perfect-fourth"></div>
+                <div class="container-fluid">
+					<div class="row">
+						<div>
+						
+						<table id="example" class="display" style="width:100%">
+								<thead>
+									<tr>
+										<th>sNo</th>
+										<th>Full Name</th>
+										<th>Address</th>
+										<th>Phone</th>
+										<th>gender</th>
+										<th>occupation</th>
+										<th>join_date</th>
+										<th>branch</th>
+										<th>Edit</th>
+										<th>Delete</th>
+									</tr>
+								</thead>
+								<tbody>
+								<?php
+									//query
+										$n=1;
+										$sql="select * from membership m,branch b where b.branch_id=m.branch and status='member'";
+										$st=$conn->query($sql);
+										while($row=$st->fetch(PDO::FETCH_ASSOC)){
+										
+									?>
+									<tr>
+										<td><?php echo $n; ?></td>
+										<td><?php echo strtoupper($row['fname']." ".$row['lname']); ?></td>
+										<td><?php echo strtoupper($row['address']); ?></td>
+										<td><?php echo strtoupper($row['phone_number']); ?></td>
+										<td><?php echo strtoupper($row['gender']); ?></td>
+										<td><?php echo strtoupper($row['occupation']); ?></td>
+										<td><?php echo strtoupper($row['join_date']);?></td>
+										<td><?php echo strtoupper($row['branch_name']);?></td>
+										<td><a class="btn btn-sm btn-sucess" href="edit_member.php?id=<?php  echo EncryptThis($row['member_id']); ?>"><i class="fa fa-edit"></i>Edit</a></td>
+										<td><a onclick="return confirm('Are you Sure?')" class="btn btn-sm btn-danger" href="delete_member.php?id=<?php echo EncryptThis($row['member_id']); ?>"><i class="fa fa-trash"></i>Delete</a></td>
+									</tr>
+										<?php 
+										$n++;
+										} ?>
+									
+								</tbody>
+								
+							</table>
 
-                <div class="footer">
-                  <div class="chart-legend">
-                    <i class="fa fa-circle text-info"></i> Open
-                    <i class="fa fa-circle text-danger"></i> Bounce
-                    <i class="fa fa-circle text-warning"></i> Unsubscribe
-                  </div>
-                  <hr>
-                  <div class="stats">
-                    <i class="ti-timer"></i> Last Update 10/2020
-                  </div>
-                </div>
+						</div>
+					</div>
+				</div>
               </div>
             </div>
           </div>
@@ -296,8 +336,14 @@ $_SESSION['active']="home";
 <script src="assets/js/jquery.sharrre.js"></script>
 
 
-
-
+ <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+  
+<script>
+$(document).ready(function() {
+    $('#example').DataTable();
+} );
+</script>
 <script type="text/javascript">
     $(document).ready(function(){
 
