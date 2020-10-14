@@ -37,7 +37,7 @@ include("inc/Ecript_function.php");
   <link href="assets/css/demo.css" rel="stylesheet" />
 
   <!--  Datatable     -->
-  <link href="//cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css" rel="stylesheet">
+<link href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css" rel="stylesheet" />
   
   <!--  Fonts and icons     -->
 <link rel="stylesheet" href="lib/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
@@ -45,7 +45,12 @@ include("inc/Ecript_function.php");
   <link href="assets/css/themify-icons.css" rel="stylesheet">
 	<!--data table-->
 	<script src="//cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
-
+<style>
+	.mb-4{
+		margin-bottom:10px;
+		float:right
+	}
+</style>
 </head>
 <body>
 
@@ -109,14 +114,13 @@ include("inc/Ecript_function.php");
           <div class="col-md-12">
             <div class="card">
               <div class="header">
-				<div class="container-fullwidth">
-					<div clas="row">
-						<div class="col-sm-10">
-							<h4 class="title">List of All Members</h4>
-							<p class="category">Only Admin Can Manipulate member</p>
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-xs-6 col-sm-10  pull-left" >
+							<h4 class="title"><span class="hidden-xs ">List of </span> All Members</h4>
 						</div>
-						<div class="col-sm-2">
-								<a href="add_member.php" class="btn btn-warning btn-fill ">Member <i class="fa fa-plus"></i></a>
+						<div class="col-sm-2 col-xs-6 ">
+								<a href="add_member.php" class="btn btn-warning btn-fill mb-4">Member <i class="fa fa-plus"></i></a>
 						</div>
 					</div>
 				</div>
@@ -124,7 +128,7 @@ include("inc/Ecript_function.php");
 				
               </div>
               <div class="content table-responsive ">
-                <table class="table table-condenced table-striped" >
+                <table id="example" class="table table-condenced table-striped" >
 					<thead>
 						<tr>
 						  <th>sNo</th>
@@ -204,8 +208,20 @@ include("inc/Ecript_function.php");
 <!-- Paper Dashboard DEMO methods, don't include it in your project! -->
 <script src="assets/js/demo.js"></script>
 <script src="assets/js/jquery.sharrre.js"></script>
+
+
+ <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+  
+<script>
+$(document).ready(function() {
+    $('#example').DataTable();
+} );
+</script>
 <!--   notify   -->
 <?php
+
+
 if(isset($_GET["re"])){
 	?>
 	<script type="text/javascript">

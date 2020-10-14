@@ -241,15 +241,14 @@ include("inc/Ecript_function.php");
           <div class="col-md-12">
             <div class="card">
               <div class="header">
-                <h4 class="title">All Users</h4>
-                <p class="category"> Graph Analysis</p>
+                <h4 class="title">All Members</h4>
               </div>
               <div class="content">
                 <div class="container-fluid">
 					<div class="row">
-						<div>
+						<div class="table-responsive">
 						
-						<table id="example" class="display" style="width:100%">
+						<table id="example" class="display table-striped table-condensed" style="width:100%">
 								<thead>
 									<tr>
 										<th>sNo</th>

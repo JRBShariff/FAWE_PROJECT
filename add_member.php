@@ -145,18 +145,20 @@ $_SESSION['active']="members";
 										<div class="col-md-6">
 											<div class="form-group">
 												<label>Excel Columns Format</label>
-												<table class="table table-bordered">
-													<tr>
-														<td>Fname</td>
-														<td>Lname</td>
-														<td>Address</td>
-														<td>Phone</td>
-														<td>Gender</td>
-														<td>Occupation</td>
-														<td>Jdate</td>
-														<td>Branch</td>
-													</tr>
-												</table>
+												<div class="table-responsive">
+													<table class="table table-bordered">
+														<tr>
+															<td>Fname</td>
+															<td>Lname</td>
+															<td>Address</td>
+															<td>Phone</td>
+															<td>Gender</td>
+															<td>Occupation</td>
+															<td>Jdate</td>
+															<td>Branch</td>
+														</tr>
+													</table>
+												</div>
 											</div>
 										</div>
 									</div>
