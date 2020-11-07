@@ -148,6 +148,7 @@ $_SESSION['active']="members";
 												<div class="table-responsive">
 													<table class="table table-bordered">
 														<tr>
+															
 															<td>Fname</td>
 															<td>Lname</td>
 															<td>Address</td>
@@ -155,7 +156,7 @@ $_SESSION['active']="members";
 															<td>Gender</td>
 															<td>Occupation</td>
 															<td>Jdate</td>
-															<td>Branch</td>
+															<td>Branch ID</td>
 														</tr>
 													</table>
 												</div>
@@ -344,7 +345,11 @@ try{
 			$gender=$filesop[4];
 			$occupation=$filesop[5];
 			$jdate=$filesop[6];
-			$branch=$filesop[7];
+			if($filesop[7]=='pemba'){
+				$branch=1;
+			}else if($filesop[7]=='unguja'){
+				$branch=2;
+			}
 			
 			$sql="insert into membership (fname,lname,address,phone_number,gender,occupation,join_date,branch) 
 			values(:fname,:lname,:address,:phone,:gender,:occupation,:jdate,:branch)";
@@ -360,9 +365,20 @@ try{
 
 	}
 }catch(Exception $e){
-		
 		?>
-		<script>alert("Something Went Wrong! Please Contact Administrator");</script>
+		<script>
+			 $(document).ready(function(){
+				$.notify("Opps! SOmething Went Wrongo, Please Contact Administrator",
+					
+				{
+					
+					animate: {
+						enter: 'animated zoomInDown',
+						exit: 'animated zoomOutUp'
+					}
+				});
+			});
+		</script>
 		<?php
 }
 
