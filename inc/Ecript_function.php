@@ -1,4 +1,9 @@
 <?php
+//disable all error
+error_reporting(0);
+try{
+	
+
 // This simple example PHP code helps illustrate how to encrypt and decrypt data.
 // This uses openssl_encrypt() and openssl_decrypt() for the encryption and decryption process respectively.
 // Detailed information on these can be found at https://www.php.net/manual/en/function.openssl-encrypt.php and
@@ -56,6 +61,24 @@ function DecryptThis($CipherData) {
    // $Before = $_POST['CipherDataInput'];
     //$After = DecryptThis($_POST['CipherDataInput']); 
 //}
+
+}catch (Exception $e){
+	?>
+		<script>
+			 $(document).ready(function(){
+				$.notify("Opps! Something Went Wrong, Please Contact Administrator",
+					
+				{
+					
+					animate: {
+						enter: 'animated zoomInDown',
+						exit: 'animated zoomOutUp'
+					}
+				});
+			});
+		</script>
+		<?php
+}
 ?>
 <!--<hr/>
 <p>This example code uses the following:</p>

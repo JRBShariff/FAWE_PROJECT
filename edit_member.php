@@ -264,19 +264,46 @@ include("inc/Ecript_function.php");
 </html>
 
 <?php 
-	if(isset($_POST['save'])){
-		$fname=$_POST['fname'];
-		$lname=$_POST['lname'];
-		$address=$_POST['address'];
-		$phone=$_POST['phone'];
-		$gender=$_POST['gender'];
-		$occupation=$_POST['occupation'];
-		$jdate=$_POST['date'];
-		$branch=$_POST['branch'];
-		$sql="UPDATE  membership set fname=:fname,lname=:lname,address=:address,phone_number=:phone,gender=:gender,occupation=:occupation,join_date=:jdate,branch=:branch where member_id=$crt";
-		$st=$conn->prepare($sql);
-		$st->execute(array(':fname'=>$fname,':lname'=>$lname,':address'=>$address,':phone'=>$phone,':gender'=>$gender,':occupation'=>$occupation,':jdate'=>$jdate,':branch'=>$branch));
-		echo "<script>window.open('members.php?re=Success Update member','_self');</script>";
+//disable all error
+error_reporting(0);
+
+	try{
+		$crt=DecryptThis($_GET['id']);
+		$sql="select * from membership  where member_id = '$crt'";
+		$st=$conn->query($sql);
+		$row=$st->fetch(PDO::FETCH_ASSOC);
+		
+		if(isset($_POST['save'])){
+			$fname=$_POST['fname'];
+			$lname=$_POST['lname'];
+			$address=$_POST['address'];
+			$phone=$_POST['phone'];
+			$gender=$_POST['gender'];
+			$occupation=$_POST['occupation'];
+			$jdate=$_POST['date'];
+			$branch=$_POST['branch'];
+			$sql="UPDATE  membership set fname=:fname,lname=:lname,address=:address,phone_number=:phone,gender=:gender,occupation=:occupation,join_date=:jdate,branch=:branch where member_id=$crt";
+			$st=$conn->prepare($sql);
+			$st->execute(array(':fname'=>$fname,':lname'=>$lname,':address'=>$address,':phone'=>$phone,':gender'=>$gender,':occupation'=>$occupation,':jdate'=>$jdate,':branch'=>$branch));
+			echo "<script>window.open('members.php?re=Success Update member','_self');</script>";
+		}		
+	}catch(Exception $e){
+		?>
+		<script>
+			 $(document).ready(function(){
+				$.notify("Opps! Something Went Wrong, Please Contact Administrator",
+					
+				{
+					
+					animate: {
+						enter: 'animated zoomInDown',
+						exit: 'animated zoomOutUp'
+					}
+				});
+			});
+		</script>
+		<?php
 	}
+
 	
 ?>

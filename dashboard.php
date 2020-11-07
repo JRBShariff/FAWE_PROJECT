@@ -259,8 +259,6 @@ include("inc/Ecript_function.php");
 										<th>occupation</th>
 										<th>join_date</th>
 										<th>branch</th>
-										<th>Edit</th>
-										<th>Delete</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -281,8 +279,6 @@ include("inc/Ecript_function.php");
 										<td><?php echo strtoupper($row['occupation']); ?></td>
 										<td><?php echo strtoupper($row['join_date']);?></td>
 										<td><?php echo strtoupper($row['branch_name']);?></td>
-										<td><a class="btn btn-sm btn-sucess" href="edit_member.php?id=<?php  echo sha1($row['member_id']); ?>"><i class="fa fa-edit"></i>Edit</a></td>
-										<td><a onclick="return confirm('Are you Sure?')" class="btn btn-sm btn-danger" href="delete_member.php?id=<?php echo EncryptThis($row['member_id']); ?>"><i class="fa fa-trash"></i>Delete</a></td>
 									</tr>
 										<?php 
 										$n++;

@@ -368,7 +368,7 @@ try{
 		?>
 		<script>
 			 $(document).ready(function(){
-				$.notify("Opps! SOmething Went Wrongo, Please Contact Administrator",
+				$.notify("Opps! Something Went Wrong, Please Contact Administrator",
 					
 				{
 					
