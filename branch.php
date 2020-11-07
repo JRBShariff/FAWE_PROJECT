@@ -112,11 +112,10 @@ $_SESSION['active']="branch";
 				<div class="container-fullwidth">
 					<div clas="row">
 						<div class="col-sm-10">
-							<h4 class="title">List of All Branches</h4>
-							<p class="category">Only Admin Can Manipulate branches</p>
+							<h4 class="title"><span class="hidden-xs">List of</span> All Branches</h4>
 						</div>
-						<div class="col-sm-2">
-								<a href="add_member.php" class="btn btn-warning btn-fill">Add Branch</a>
+						<div class="col-sm-2 ">
+								<a href="add_member.php" class="btn mb-4 btn-warning btn-fill">Add Branch <i class="fa fa-plus"></i></a>
 						</div>
 					</div>
 				</div>
@@ -124,7 +123,7 @@ $_SESSION['active']="branch";
 				
               </div>
               <div class="content table-responsive ">
-                <table class="table table-condenced table-striped" >
+                <table id="example" class="table table-condenced table-striped" >
 					<thead>
 						<tr>
 						  <th>sNo</th>
@@ -165,9 +164,7 @@ $_SESSION['active']="branch";
       </div>
     </div>
 
-     <?php
-		include("inc/footer.php");
-	?>
+ 
 
 
 
@@ -199,4 +196,13 @@ $_SESSION['active']="branch";
 <!-- Paper Dashboard DEMO methods, don't include it in your project! -->
 <script src="assets/js/demo.js"></script>
 <script src="assets/js/jquery.sharrre.js"></script>
+
+ <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+  
+<script>
+$(document).ready(function() {
+    $('#example').DataTable();
+} );
+</script>
 </html>

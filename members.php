@@ -27,8 +27,6 @@ include("inc/Ecript_function.php");
   <!-- Bootstrap core CSS     -->
   <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
 
-  <!-- Animation library for notifications   -->
-  <link href="assets/css/animate.min.css" rel="stylesheet"/>
 
   <!--  Paper Dashboard core CSS    -->
   <link href="assets/css/paper-dashboard.css" rel="stylesheet"/>
@@ -38,19 +36,17 @@ include("inc/Ecript_function.php");
 
   <!--  Datatable     -->
 <link href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css" rel="stylesheet" />
-  
+  	<script src="//cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+
+	  <!-- Animation library for notifications   -->
+  <link href="assets/css/animate.min.css" rel="stylesheet"/>
+
   <!--  Fonts and icons     -->
 <link rel="stylesheet" href="lib/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
   <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
   <link href="assets/css/themify-icons.css" rel="stylesheet">
 	<!--data table-->
-	<script src="//cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
-<style>
-	.mb-4{
-		margin-bottom:10px;
-		float:right
-	}
-</style>
+
 </head>
 <body>
 
@@ -117,7 +113,7 @@ include("inc/Ecript_function.php");
 				<div class="container-fluid">
 					<div class="row">
 						<div class="col-xs-6 col-sm-10  pull-left" >
-							<h4 class="title"><span class="hidden-xs ">List of </span> All Members</h4>
+							<h4 class="title"><span class="hidden-xs ">List of </span> All Members </h4>
 						</div>
 						<div class="col-sm-2 col-xs-6 ">
 								<a href="add_member.php" class="btn btn-warning btn-fill mb-4">Member <i class="fa fa-plus"></i></a>
@@ -210,7 +206,6 @@ include("inc/Ecript_function.php");
 <script src="assets/js/jquery.sharrre.js"></script>
 
 
- <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
   <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
   
 <script>
@@ -218,9 +213,9 @@ $(document).ready(function() {
     $('#example').DataTable();
 } );
 </script>
+
 <!--   notify   -->
 <?php
-
 
 if(isset($_GET["re"])){
 	?>

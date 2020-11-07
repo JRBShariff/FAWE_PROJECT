@@ -281,7 +281,7 @@ include("inc/Ecript_function.php");
 										<td><?php echo strtoupper($row['occupation']); ?></td>
 										<td><?php echo strtoupper($row['join_date']);?></td>
 										<td><?php echo strtoupper($row['branch_name']);?></td>
-										<td><a class="btn btn-sm btn-sucess" href="edit_member.php?id=<?php  echo EncryptThis($row['member_id']); ?>"><i class="fa fa-edit"></i>Edit</a></td>
+										<td><a class="btn btn-sm btn-sucess" href="edit_member.php?id=<?php  echo sha1($row['member_id']); ?>"><i class="fa fa-edit"></i>Edit</a></td>
 										<td><a onclick="return confirm('Are you Sure?')" class="btn btn-sm btn-danger" href="delete_member.php?id=<?php echo EncryptThis($row['member_id']); ?>"><i class="fa fa-trash"></i>Delete</a></td>
 									</tr>
 										<?php 
@@ -323,7 +323,21 @@ include("inc/Ecript_function.php");
 
 <!--  Notifications Plugin    -->
 <script src="assets/js/bootstrap-notify.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
 
+
+        $.notify({
+            icon: 'ti-home',
+            message: "Welcome to <b>FAWE Members Record System (MRS)</b> ."
+
+        },{
+            type: 'success',
+            timer: 4000
+        });
+
+    });
+</script>
 <!--  Google Maps Plugin    -->
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
 
@@ -333,32 +347,16 @@ include("inc/Ecript_function.php");
 <!-- Paper Dashboard DEMO methods, don't include it in your project! -->
 <script src="assets/js/demo.js"></script>
 <script src="assets/js/jquery.sharrre.js"></script>
-
-
- <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-  <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
-  
 <script>
 $(document).ready(function() {
     $('#example').DataTable();
 } );
 </script>
-<script type="text/javascript">
-    $(document).ready(function(){
 
-        demo.initChartist();
 
-        $.notify({
-            icon: 'ti-gift',
-            message: "Welcome to <b>FAWE Admin Panel</b> ."
 
-        },{
-            type: 'success',
-            timer: 4000
-        });
-
-    });
-</script>
+  <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+  
 
 
 <!-- Mirrored from demos.creative-tim.com/bs3/paper-dashboard/dashboard.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 13 Oct 2020 13:15:24 GMT -->

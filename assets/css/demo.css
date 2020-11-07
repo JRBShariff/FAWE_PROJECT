@@ -10,6 +10,11 @@
 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. */
 
+	.mb-4{
+		margin-bottom:10px;
+		float:right
+	}
+
 @media (min-width: 992px){
     .typo-line{
         padding-left: 140px;

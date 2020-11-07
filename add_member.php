@@ -118,8 +118,8 @@ $_SESSION['active']="members";
 										<div class="col-sm-10">
 											<h4 class="title">Add Multiple Member</h4>
 										</div>
-										<div >
-											<button class="btn btn-info" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+										<div class="">
+											<button class="btn btn-info mb-4" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
 											  Open Form 
 											</button>
 										</div>
@@ -138,7 +138,7 @@ $_SESSION['active']="members";
 										<div class="col-md-6">
 											<div class="form-group">
 												<label for="" >File Upload</label>
-												<input type="file" class="form-control" name="file" id="file" size="150">
+												<input required type="file" class="form-control" name="file" id="file" size="150">
 												<p class="help-block">Only CSV File Import.</p>
 											</div>
 										</div>
@@ -176,7 +176,6 @@ $_SESSION['active']="members";
 					<div clas="row">
 						<div class="col-sm-12">
 							<h4 class="title">Add Single Member</h4>
-							<p class="category">Please Fill all required field *</p>
 						</div>
 					</div>
 				</div>
@@ -311,6 +310,12 @@ $_SESSION['active']="members";
 </html>
 
 <?php 
+//disable all error
+error_reporting(0);
+
+try{
+		
+	
 	if(isset($_POST['save'])){
 		$fname=$_POST['fname'];
 		$lname=$_POST['lname'];
@@ -354,6 +359,12 @@ $_SESSION['active']="members";
         }
 
 	}
+}catch(Exception $e){
+		
+		?>
+		<script>alert("Something Went Wrong! Please Contact Administrator");</script>
+		<?php
+}
 
 	
 ?>
