@@ -20,11 +20,23 @@
             <p>Dashboard</p>
           </a>
         </li>
-        <li <?php if($_SESSION['active']=="members"){ echo 'class="active"'; } ?>> 
-          <a href="members.php">
+			 
+		
+		
+        <li <?php if($_SESSION['active']=="members-add" || $_SESSION['active']=="members-view" ){ echo 'class="active"'; } ?>> 
+          <a  href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
             <i class="fa fa-users"></i>
             <p>Members</p>
           </a>
+		   <ul <?php if($_SESSION['active']=="members-add" || $_SESSION['active']=="members-view"){ echo 'class=" list-unstyled nav2"'; }else{ echo 'class="collapse list-unstyled nav2"'; } ?> id="homeSubmenu">
+                <li <?php if($_SESSION['active']=="members-add"){ echo 'class="active-drop" '; } ?>>
+					<p><a href="add_member.php">Add Member  <i class="fa fa-user"></i></a></p>
+                </li> 
+				<li <?php if($_SESSION['active']=="members-view"){ echo 'class="active-drop" '; } ?>>
+					<p><a href="members.php">View Members  <i class="fa fa-eye"></i></a></p>
+                </li> 
+				
+            </ul>
         </li>
 		<li <?php if($_SESSION['active']=="branch"){ echo 'class="active"'; } ?>>
           <a href="branch.php">

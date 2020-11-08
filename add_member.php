@@ -4,7 +4,8 @@ session_start();
 if(!$_SESSION['user']){
 	header("location:index.php?must Login");
 }
-$_SESSION['active']="members";
+$_SESSION['active']="members-add";
+
 
 ?>
 <!doctype html>
@@ -27,11 +28,13 @@ $_SESSION['active']="members";
   <!-- Bootstrap core CSS     -->
   <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
 
+
   <!-- Animation library for notifications   -->
   <link href="assets/css/animate.min.css" rel="stylesheet"/>
 
   <!--  Paper Dashboard core CSS    -->
   <link href="assets/css/paper-dashboard.css" rel="stylesheet"/>
+  <link href="assets/css/my-style.css" rel="stylesheet"/>
 
   <!--  CSS for Demo Purpose, don't include it in your project     -->
   <link href="assets/css/demo.css" rel="stylesheet" />

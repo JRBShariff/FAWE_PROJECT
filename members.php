@@ -4,7 +4,7 @@ session_start();
 if(!$_SESSION['user']){
 	header("location:index.php?must Login");
 }
-$_SESSION['active']="members";
+$_SESSION['active']="members-view";
 include("inc/Ecript_function.php");
 ?>
 <!doctype html>
@@ -30,6 +30,9 @@ include("inc/Ecript_function.php");
 
   <!--  Paper Dashboard core CSS    -->
   <link href="assets/css/paper-dashboard.css" rel="stylesheet"/>
+  
+    <link href="assets/css/my-style.css" rel="stylesheet"/>
+
 
   <!--  CSS for Demo Purpose, don't include it in your project     -->
   <link href="assets/css/demo.css" rel="stylesheet" />

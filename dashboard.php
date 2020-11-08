@@ -42,6 +42,7 @@ include("inc/Ecript_function.php");
 
   <!--  Paper Dashboard core CSS    -->
   <link href="assets/css/paper-dashboard.css" rel="stylesheet"/>
+  <link href="assets/css/my-style.css" rel="stylesheet"/>
 
 
   <!--  CSS for Demo Purpose, don't include it in your project     -->
@@ -53,8 +54,11 @@ include("inc/Ecript_function.php");
 <link rel="stylesheet" href="lib/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
   <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
   <link href="assets/css/themify-icons.css" rel="stylesheet">
- 
+<style>
+	
+</style> 
 </head>
+
 <body>
 
 <div class="wrapper">
