@@ -35,6 +35,9 @@ $_SESSION['active']="branch";
 
   <!--  CSS for Demo Purpose, don't include it in your project     -->
   <link href="assets/css/demo.css" rel="stylesheet" />
+  
+      <link href="assets/css/my-style.css" rel="stylesheet"/>
+
 
   <!--  Datatable     -->
   <link href="//cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css" rel="stylesheet">
