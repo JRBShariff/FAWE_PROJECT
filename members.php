@@ -71,38 +71,7 @@ include("inc/Ecript_function.php");
           </button>
           <a class="navbar-brand" href="#">FAWE MRS | Manage Members</a>
         </div>
-        <!-- <div class="collapse navbar-collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li>
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                <i class="ti-panel"></i>
-                <p>Stats</p>
-              </a>
-            </li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                <i class="ti-bell"></i>
-                <p class="notification">5</p>
-                <p>Notifications</p>
-                <b class="caret"></b>
-              </a>
-              <ul class="dropdown-menu">
-                <li><a href="#">Notification 1</a></li>
-                <li><a href="#">Notification 2</a></li>
-                <li><a href="#">Notification 3</a></li>
-                <li><a href="#">Notification 4</a></li>
-                <li><a href="#">Another notification</a></li>
-              </ul>
-            </li>
-            <li>
-              <a href="#">
-                <i class="ti-settings"></i>
-                <p>Settings</p>
-              </a>
-            </li>
-          </ul>
-
-        </div> -->
+       
       </div>
     </nav>
 
@@ -159,8 +128,8 @@ include("inc/Ecript_function.php");
 						<td><?php echo strtoupper($row['occupation']); ?></td>
 						<td><?php echo strtoupper($row['join_date']);?></td>
 						<td><?php echo strtoupper($row['branch_name']);?></td>
-						<td><a class="btn btn-sm btn-sucess" href="edit_member.php?id=<?php  echo EncryptThis($row['member_id']); ?>"><i class="fa fa-edit"></i>Edit</a></td>
-						<td><a onclick="return confirm('Are you Sure?')" class="btn btn-sm btn-danger" href="delete_member.php?id=<?php echo EncryptThis($row['member_id']); ?>"><i class="fa fa-trash"></i>Delete</a></td>
+						<td><a class="btn btn-sm btn-sucess" href="edit_member.php?id=<?php  echo sha1($row['member_id']).'&tok2val='.$row['member_id']; ?>"><i class="fa fa-edit"></i>Edit</a></td>
+						<td><a onclick="return confirm('Are you Sure?')" class="btn btn-sm btn-danger" href="delete_member.php?id=<?php echo sha1($row['member_id']).'&tok2val='.$row['member_id'];; ?>"><i class="fa fa-trash"></i>Delete</a></td>
 					  </tr>
 					  <?php
 						$n++;

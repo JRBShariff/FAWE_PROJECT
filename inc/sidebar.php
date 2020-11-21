@@ -23,7 +23,7 @@
 			 
 		
 		
-        <li <?php if($_SESSION['active']=="members-add" || $_SESSION['active']=="members-view" ){ echo 'class="active"'; } ?>> 
+        <li <?php if($_SESSION['active']=="members-add" || $_SESSION['active']=="members-view"|| $_SESSION['active']=="member-edit" ){ echo 'class="active"'; } ?>> 
           <a  href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
             <i class="fa fa-users"></i>
             <p>Members</p>
